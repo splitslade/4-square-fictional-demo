@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>4-Square Generator | Fictional browser demonstration</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="app.css">
+<script src="fixtures.js" defer></script><script src="app.js" defer></script>
+</head><body>
+<div class="demo-banner">FICTIONAL DEMONSTRATION — NO LIVE DATA / NO AI / NO COMPANY RECORDS</div>
+<header class="masthead"><div class="shell topline"><div class="brand"><div class="brand-mark" aria-hidden="true">4</div><div class="brand-details"><strong>4-Square Generator</strong><small>Investigation review → safety communication</small></div></div><span class="dev-pill">BROWSER DEMONSTRATION</span></div></header>
+<main class="shell workspace"><div class="columns">
+<section class="editor" aria-label="4-Square editor">
+ <section class="panel"><div class="panel-title"><span class="step">1</span><div><h2>Investigation upload / demo load</h2><p>Preloaded fictional reports. Extraction is simulated.</p></div></div>
+ <div class="fixture-controls"><select id="caseSelect" aria-label="Fictional investigation"><option value="equipment">SYN-204 · Equipment incident</option><option value="walkway">SYN-318 · Walkway near miss</option></select><button id="loadDemoBtn" class="secondary-button" type="button">Load fictional investigation</button></div>
+ <div class="disabled-upload"><button type="button" disabled aria-describedby="uploadExplanation">Upload disabled</button><span id="uploadExplanation">This demonstration does not read files. No arbitrary PDF, DOCX or TXT extraction, uploads, or data transmission.</span></div>
+ <p id="fileLine" class="section-help" role="status">Choose a fictional investigation to begin.</p>
+ <details id="sourcePanel" hidden><summary>Read the complete fictional source report</summary><pre id="sourceReport" class="source-report"></pre></details>
+ </section>
+ <section class="panel"><div class="panel-title"><span class="step">2</span><div><h2>Review extracted content</h2><p>Verify each field against its fictional source.</p></div><button id="resetBtn" class="secondary-button" type="button" disabled>Reset to source</button></div>
+ <fieldset id="reviewFields" class="review-fields" disabled><legend class="sr-only">Review fictional incident fields</legend>
+ <div class="mini-grid"><label>IMS / WINWEB number<input id="incident_number" class="field" maxlength="24"><span class="source-reference" id="ref-incident_number"></span></label><label>Branch<input id="branch" class="field" maxlength="24"><span class="source-reference" id="ref-branch"></span></label></div>
+ <label>Incident title<input id="incident_title" class="field" maxlength="100"><span class="source-reference" id="ref-incident_title"></span></label>
+ <label>Incident date<input id="incident_date" class="field" maxlength="24"><span class="source-reference" id="ref-incident_date"></span></label>
+ <label>Summary of incident (What?)<textarea id="summary" class="field area" rows="4" maxlength="900"></textarea><span class="source-reference" id="ref-summary"></span></label>
+ <div class="review-group"><h3>Causal Factors (Why?):</h3><p class="section-help">Every original factor remains visible. Uncheck to explicitly exclude.</p><div id="causeRows"></div></div>
+ <div class="review-group"><h3>Corrective Actions:</h3><p class="section-help">Every original action remains visible. Original wording stays below each edit.</p><div id="actionRows"></div></div>
+ <label>Take-aways:<textarea id="takeaway" class="field area" rows="2" maxlength="350"></textarea><span class="source-reference" id="ref-takeaway"></span></label>
+ </fieldset></section>
+ <section class="panel"><div class="panel-title"><span class="step">3</span><div><h2>Photos</h2><p>Select up to four generic illustrations. These are not incident evidence.</p></div></div><div id="photoGrid" class="photos"></div><p id="photoEmpty" class="section-help">Load a fictional investigation to select illustrations.</p></section>
+ <section class="panel"><div class="panel-title"><span class="step">4</span><div><h2>Generate 4-Square</h2><p>Browser preview only. PowerPoint output is simulated; no PPTX is created.</p></div></div>
+ <div id="omissionPanel" class="omission-panel" hidden><strong id="omissionSummary"></strong><ul id="omissionList"></ul><label class="confirm"><input id="omissionsConfirmed" type="checkbox"><span>I reviewed these original source items and intentionally acknowledge every omission.</span></label></div>
+ <label class="confirm"><input id="confirm" type="checkbox" disabled><span>I reviewed the wording, source references, selections and all changes. This is fictional demonstration content only.</span></label>
+ <button id="generateBtn" class="primary" type="button" disabled>Generate reviewed browser preview <span aria-hidden="true">→</span></button>
+ <p id="status" class="status" role="status">Load a fictional investigation to begin.</p>
+ <div id="readyState" class="ready-state" hidden>Reviewed browser preview ready. No PowerPoint file was generated. A supervisor must verify all content before any distribution.</div>
+ </section>
+</section>
+<section class="panel preview-panel" aria-label="Live 4-Square preview">
+ <div class="preview-heading"><div><h2>4-Square Preview</h2><p>Live editable visualization · fictional content only</p></div><span class="preview-page">Slide 1 of 1</span></div>
+ <div class="slide-shadow"><article id="slidePreview" class="slide-preview" aria-label="Live incident slide">
+ <div class="slide-top"><h2 id="previewTitle" class="slide-title">IMS — Load a fictional investigation</h2></div>
+ <div class="slide-grid">
+ <section class="slide-cell summary-cell"><h3>Summary of incident (What?)</h3><div class="slide-body"><p id="previewSummary" class="slide-paragraph">The incident summary will appear here.</p></div></section>
+ <section class="slide-cell picture-cell"><h3>Pictures</h3><div id="previewPhotos" class="preview-photo-grid"><div class="photo-placeholder">Generic illustrations only</div></div></section>
+ <section class="slide-cell causal-cell"><h3>Causal Factors (Why?):</h3><div class="slide-body"><ul id="previewCauses" class="slide-list"><li>Review original factors.</li></ul></div></section>
+ <section class="slide-cell action-cell"><h3>Corrective Actions:</h3><div class="slide-body"><ul id="previewActions" class="slide-list"><li>Review original actions.</li></ul></div></section>
+ </div>
+ <div class="slide-takeaway"><span id="previewTakeaway">Take-aways: Verify the fictional source before sharing.</span></div>
+ <div class="slide-footer"><span>FICTIONAL DEMONSTRATION · REVIEW DRAFT</span><strong>4-SQUARE</strong></div>
+ </article></div>
+ <p id="fitWarning" class="fit-warning" role="alert" hidden>Content is too long for the slide. Shorten the wording before generating a reviewed preview. Text has not been silently removed.</p>
+ <p class="preview-note">Same section order and slide proportions as the original interface. Neutral red footer; no corporate logos, icons or templates. This HTML visualization is not a rendered PowerPoint.</p>
+ <div class="privacy"><strong>Everything stays in this tab.</strong> No backend, API/model calls, tracking, cookies, analytics or browser storage. Reloading clears edits. Only bundled fictional fixtures and original generic illustrations are used.</div>
+</section>
+</div><footer class="app-footer">SAFETY / IT FEEDBACK DEMO · NOT A PRODUCTION SYSTEM</footer></main>
+<noscript>This interactive demonstration requires JavaScript enabled in your browser. No installation is needed.</noscript>
+</body></html>
